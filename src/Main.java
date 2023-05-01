@@ -1,3 +1,4 @@
+import java.io.File;
 import java.util.Scanner;
 
 public class Main {
@@ -18,7 +19,8 @@ public class Main {
                     parkAccountant.enterAllMonthlyReports();
                     break;
                 case ("2"):
-                    reportsReader.readYearlyReport(reportsReader.filesDirectoryPath + "/y.2021.csv", parkAccountant.yearlyReport);
+                    reportsReader.readYearlyReport(reportsReader.filesDirectoryPath + File.separator
+                            + "y.2021.csv", parkAccountant.yearlyReport);
                     break;
                 case ("3"):
                     parkAccountant.checkMonthlyAndYearlyReports();

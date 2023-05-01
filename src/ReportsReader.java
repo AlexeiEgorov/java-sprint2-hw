@@ -1,3 +1,4 @@
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -6,10 +7,13 @@ import java.util.List;
 import java.util.HashMap;
 
 public class ReportsReader {
-    final String filesDirectoryPath = "./resources";
+    final String filesDirectoryPath = "." + File.separator + "resources";
 
     void readMonthlyReport(String path, MonthlyReport monthlyReport) {
         List<String> fileContents = readFileContents(path);
+        if (fileContents.size() == 0) {
+            return;
+        }
         //Вырезаем номер месяца из названия отчета, например: m.2021 (01) .csv
         String monthNumber = path.substring(path.indexOf("m.") + 6, path.length() - 4);
         monthlyReport.monthNumber = Integer.parseInt(monthNumber);
@@ -36,6 +40,9 @@ public class ReportsReader {
 
     void readYearlyReport(String path, YearlyReport yearlyReport) {
         List<String> fileContents = readFileContents(path);
+        if (fileContents.size() == 0) {
+            return;
+        }
         //Вырезаем номер года: y. (2021) .csv
         String reportDate = path.substring(path.indexOf("y.") + 2, path.length() - 4);
         yearlyReport.yearNumber = Short.parseShort(reportDate);

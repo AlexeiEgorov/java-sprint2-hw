@@ -4,9 +4,7 @@ public class YearlyReport {
     int[] yearlyProfits;
 
     int getProfitPerMonth(int month) {
-        int profit = yearlyProfits[month-1] - yearlyExpenses[month-1];
-
-        return profit;
+        return yearlyProfits[month-1] - yearlyExpenses[month-1];
     }
 
     double getAverageExpenseForMonthsInYear() {

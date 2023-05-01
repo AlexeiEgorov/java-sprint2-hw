@@ -6,9 +6,7 @@ public class MonthlyReport {
     HashMap<String, int[]> monthlyProfits;
 
     int getItemsPrice(int[] quantityAndPrice) {
-        int itemsPrice = quantityAndPrice[0] * quantityAndPrice[1];
-
-        return itemsPrice;
+        return quantityAndPrice[0] * quantityAndPrice[1];
     }
 
     int sumExpenses() {

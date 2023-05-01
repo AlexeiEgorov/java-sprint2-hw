@@ -1,3 +1,4 @@
+import java.io.File;
 
 public class ParkAccountant {
     ReportsReader reportsReader;
@@ -11,13 +12,12 @@ public class ParkAccountant {
         for (int i = 0; i < 3; i++) {
             monthlyReports[i] = new MonthlyReport();
         }
-
     }
 
     void enterAllMonthlyReports() {
         for (int i = 1; i <= 3; i++) {
             String fileName = "m.20210" + i + ".csv";
-            String filePath = reportsReader.filesDirectoryPath + "/" + fileName;
+            String filePath = reportsReader.filesDirectoryPath + File.separator + fileName;
             reportsReader.readMonthlyReport(filePath, monthlyReports[i - 1]);
         }
     }
